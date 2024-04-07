@@ -36,7 +36,8 @@ public:
     char field_1BB[145];
     int m_nDownloadedFilesCount_1;
     int m_nFilesSum;
-    int field_254[2];
+    int field_254;
+    int field_258;
     float m_fDownloadSpeed;
     char field_260;
 
@@ -46,8 +47,10 @@ public:
     void GetScreenRect(CRect* pRect);
     void DoesExist(int nFileId);
     void Show();
-    void AddEntry(char nFileType, int nFileId, char nFileState, int a5, int a6, int a7, int a8);
+    void AddEntry(char nFileType, int nFileId, char nFileState, int nFileDownloaded, int nFileRemainDownload, int a7, int a8);
     void Draw();
+    void ResetDialogControl(CDXUTDialog* pDialog);
+    void FreePool();
 };
 
 SAMPAPI_EXPORT SAMPAPI_VAR CDownloadWindow*& RefDownloadWindow();

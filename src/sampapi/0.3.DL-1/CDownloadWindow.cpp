@@ -31,15 +31,23 @@ void CDownloadWindow::DoesExist(int nFileId) {
     ((void(__thiscall*)(CDownloadWindow*, int))GetAddress(0x6A610))(this, nFileId);
 }
 
-void CDownloadWindow::AddEntry(char nFileType, int nFileId, char nFileState, int a5, int a6, int a7, int a8) {
-    ((void(__thiscall*)(CDownloadWindow*, char, int, char, int, int, int, int))GetAddress(0x6A720))(this, nFileType, nFileId, nFileState, a5, a6, a7, a8);
+void CDownloadWindow::AddEntry(char nFileType, int nFileId, char nFileState, int nFileDownloaded, int nFileRemainDownload, int a7, int a8) {
+    ((void(__thiscall*)(CDownloadWindow*, char, int, char, int, int, int, int))GetAddress(0x6A720))(this, nFileType, nFileId, nFileState, nFileDownloaded, nFileRemainDownload, a7, a8);
 }
 
 void CDownloadWindow::Show() {
     ((void(__thiscall*)(CDownloadWindow*))GetAddress(0x6A2B0))(this);
 }
 
+void CDownloadWindow::ResetDialogControl(CDXUTDialog* pDialog) {
+    ((void(__thiscall*)(CDownloadWindow*, CDXUTDialog*))GetAddress(0x6A6E0))(this, pDialog);
+}
+
 void CDownloadWindow::Draw() {
     ((void(__thiscall*)(CDownloadWindow*))GetAddress(0x6A350))(this);
+}
+
+void CDownloadWindow::FreePool() {
+    ((void(__thiscall*)(CDownloadWindow*))GetAddress(0x6A6E0))(this);
 }
 SAMPAPI_END
