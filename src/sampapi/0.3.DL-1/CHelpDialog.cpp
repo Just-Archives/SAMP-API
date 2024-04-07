@@ -16,7 +16,7 @@ SAMPAPI_VAR CHelpDialog*& RefHelpDialog() {
 }
 
 CHelpDialog::CHelpDialog(IDirect3DDevice9* pDevice) {
-    ((void(__thiscall*)(CHelpDialog*, IDirect3DDevice9*))GetAddress(0x80C8))(this, pDevice);
+    ((void(__thiscall*)(CHelpDialog*, IDirect3DDevice9*))GetAddress(0x6B566))(this, pDevice);
 }
 
 void CHelpDialog::Show() {

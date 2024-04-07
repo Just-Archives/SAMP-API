@@ -17,17 +17,17 @@ SAMPAPI_BEGIN_PACKED_V03DL_1
 
 class SAMPAPI_EXPORT CDownloadWindow {
 public:
-    CDownloadedFilesPool* m_pFilesPool;
+    CDownloadedFilesPool *m_pFilesPool;
     int m_nDownloadedFilesCount;
-    IDirect3DDevice9* m_pDevice;
-    unsigned int m_position[2];
+    IDirect3DDevice9 *m_pDevice;
+    unsigned __int32 m_position[2];
     int m_nWindowWidth;
     int m_nWindowHeight;
     int field_1C;
     int field_20;
     int field_24;
-    CDXUTDialog* m_pDialog;
-    CDXUTListBox* m_pListbox;
+    CDXUTDialog *m_pDialog;
+    CDXUTListBox *m_pListbox;
     int m_bIsWindowActive;
     int field_34;
     char m_szType[129];
@@ -36,7 +36,8 @@ public:
     char field_1BB[145];
     int m_nDownloadedFilesCount_1;
     int m_nFilesSum;
-    int field_254[2];
+    int field_254;
+    int field_258;
     float m_fDownloadSpeed;
     char field_260;
 
@@ -48,6 +49,8 @@ public:
     void Show();
     void AddEntry(char nFileType, int nFileId, char nFileState, int a5, int a6, int a7, int a8);
     void Draw();
+    void ResetDialogControl(CDXUTDialog *pDialog);
+    void FreePool();
 };
 
 SAMPAPI_EXPORT SAMPAPI_VAR CDownloadWindow*& RefDownloadWindow();
