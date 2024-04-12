@@ -57,4 +57,5 @@ target_sources(sampapi
     CObjectEdit.cpp
     RPCHandlers.cpp
     CDownloadWindow.cpp
+    CCustomModels.cpp
 )

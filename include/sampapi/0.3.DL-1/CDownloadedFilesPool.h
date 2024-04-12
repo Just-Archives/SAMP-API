@@ -21,6 +21,7 @@ struct SAMPAPI_EXPORT DownloadedFileInfo {
     int m_nFileDownloaded;
     int m_nFileRemainDownload;
 };
+
 struct SAMPAPI_EXPORT CDownloadedFilesPool {
     DownloadedFileInfo *m_pObject[20000];
 };
