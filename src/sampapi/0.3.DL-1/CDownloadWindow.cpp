@@ -31,8 +31,8 @@ void CDownloadWindow::DoesExist(int nFileId) {
     ((void(__thiscall*)(CDownloadWindow*, int))GetAddress(0x6A610))(this, nFileId);
 }
 
-void CDownloadWindow::AddEntry(char nFileType, int nFileId, char nFileState, int nFileDownloaded, int nFileRemainDownload, int a7, int a8) {
-    ((void(__thiscall*)(CDownloadWindow*, char, int, char, int, int, int, int))GetAddress(0x6A720))(this, nFileType, nFileId, nFileState, nFileDownloaded, nFileRemainDownload, a7, a8);
+void CDownloadWindow::AddEntry(char nFileType, int nFileId, char nFileState, int nFileDownloaded, int nFileRemainDownload, int a7) {
+    ((void(__thiscall*)(CDownloadWindow*, char, int, char, int, int, int))GetAddress(0x6A720))(this, nFileType, nFileId, nFileState, nFileDownloaded, nFileRemainDownload, a7);
 }
 
 void CDownloadWindow::Show() {
@@ -50,4 +50,26 @@ void CDownloadWindow::Draw() {
 void CDownloadWindow::FreePool() {
     ((void(__thiscall*)(CDownloadWindow*))GetAddress(0x6A6E0))(this);
 }
+
+void CDownloadWindow::PushBack(DownloadedFileInfo* pInfo) {
+    ((void(__thiscall*)(CDownloadWindow*, DownloadedFileInfo*))GetAddress(0x6A650))(this, pInfo);
+}
+
+void CDownloadWindow::DeleteFile(unsigned int nId) {
+    ((void(__thiscall*)(CDownloadWindow*, unsigned int))GetAddress(0x6A6B0))(this, nId);
+}
+
+void CDownloadWindow::ResizePool(unsigned int nId) {
+    ((void(__thiscall*)(CDownloadWindow*, unsigned int))GetAddress(0x6A450))(this, nId);
+}
+
+int CDownloadWindow::GetFilesCount() {
+    return ((int(__thiscall*)(CDownloadWindow*))GetAddress(0x6A440))(this);
+}
+
+
+DownloadedFileInfo* CDownloadWindow::GetFileInfo(unsigned int nId) {
+    return ((DownloadedFileInfo*(__thiscall*)(CDownloadWindow*, unsigned int))GetAddress(0x6A420))(this, nId);
+}
+
 SAMPAPI_END

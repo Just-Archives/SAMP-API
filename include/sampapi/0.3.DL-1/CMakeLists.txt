@@ -59,4 +59,6 @@ target_sources(sampapi
     CObjectEdit.h
     CDownloadedFilesPool.h
     CDownloadWindow.h
+    CCustomModelsPool.h
+    CCustomModels.h
 )

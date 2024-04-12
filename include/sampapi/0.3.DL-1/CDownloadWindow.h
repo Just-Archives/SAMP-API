@@ -29,17 +29,20 @@ public:
     CDXUTDialog* m_pDialog;
     CDXUTListBox* m_pListbox;
     int m_bIsWindowActive;
-    int field_34;
+    int m_nRowCount;
     char m_szType[129];
     char m_szId[129];
     char m_szProcess[129];
-    char field_1BB[145];
+    char m_szUnused[129];
+    int m_nSpaceSizeForIdText;
+    int m_nSpaceSizeForProgressText;
+    int field_244;
+    int field_248;
     int m_nDownloadedFilesCount_1;
     int m_nFilesSum;
     int field_254;
     int field_258;
     float m_fDownloadSpeed;
-    char field_260;
 
     CDownloadWindow(IDirect3DDevice9* pDevice);
     ~CDownloadWindow();
@@ -47,10 +50,17 @@ public:
     void GetScreenRect(CRect* pRect);
     void DoesExist(int nFileId);
     void Show();
-    void AddEntry(char nFileType, int nFileId, char nFileState, int nFileDownloaded, int nFileRemainDownload, int a7, int a8);
+    void AddEntry(char nFileType, int nFileId, char nFileState, int nFileDownloaded, int nFileRemainDownload, int a7);
     void Draw();
     void ResetDialogControl(CDXUTDialog* pDialog);
     void FreePool();
+    void PushBack(DownloadedFileInfo* pInfo);
+    void DeleteFile(unsigned int nId);
+    void ResizePool(unsigned int nId);
+    int GetFilesCount();
+    DownloadedFileInfo* GetFileInfo(unsigned int nId);
+    
+
 };
 
 SAMPAPI_EXPORT SAMPAPI_VAR CDownloadWindow*& RefDownloadWindow();
